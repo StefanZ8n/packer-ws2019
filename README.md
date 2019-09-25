@@ -7,26 +7,32 @@ This Packer configuration file allows you to build images for VMware Workstation
 
 ## Prerequisites
 
-* [Packer](https://www.packer.io/downloads.html)
-  * <https://www.packer.io/intro/getting-started/install.html>
-* An ESX host hypervisor
-  * [VMware ESXI](https://www.vmware.com/de/products/esxi-and-esx.html)  
-* OVA Tool!
+* [Packer](https://www.packer.io/downloads.html) to run the build process
+* [VMware ESXI](https://www.vmware.com/de/products/esxi-and-esx.html) to build on
+* [VMware OVF Tool](https://www.vmware.com/support/developer/ovf/) to create the OVA from the generated VM
+
+## Build process
+
+* Unattended installation of WS2019 Datacenter Eval version (Desktop experience) from downloaded ISO file
+* Installation of VMware tools from ISO provided from the build ESX server
+* Updating OS via Windows Update
+* Export VM and package as OVA file
 
 ## HowTo
 
 ### Prepare Build ESX Server
 
 * Default ESXi installation
-* Enable SSH
-* Configure Guest IP hack via SSH: 
+* Enable SSH service
+* Configure guest IP hack via SSH: 
   ```sh
   esxcli system settings advanced set -o /Net/GuestIPHack -i 1
   ```
+
 ### Prepare Build Host
 
 * Install Packer
-* Install OVA Tool
+* Install VMware OVA Tool
 
 ### Configure Build Variables
 
@@ -54,14 +60,15 @@ Wait for the build to finish to find the generated OVA file in the `output-vmwar
 
 The default credentials for this VM image are:
 
-|Username|Password|
-|--------|--------|
-|Administrator|`Passw0rd.`|
+| Username      | Password    |
+|---------------|-------------|
+| Administrator | `Passw0rd.` |
 
 ## Implementation Details
 
-- Sleep at 1st provisioner because Windows is doing another reboot first - [ ] Check if this is really required?! 
+- Sleep at 1st provisioner because Windows is doing another reboot first
 
 ## Resources
 
 - [packer-Win2019](https://github.com/eaksel/packer-Win2019) (used as a base for this work - big kudos!)
+- Repo contains VMware's drivers for paravirtual devices (`pvscsi` and `vmxnet3`)

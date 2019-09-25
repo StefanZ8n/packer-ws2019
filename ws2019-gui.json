@@ -38,6 +38,7 @@
       "disk_type_id": "thin",
       "network_adapter_type": "vmxnet3",
       "network": "bridged",
+      "tools_upload_flavor": "windows",
       "vmx_data": {
         "ethernet0.networkName": "VM Network"
       },
@@ -63,7 +64,7 @@
       "pause_before": "3m",
       "type": "powershell",
       "scripts": [
-        "scripts/vmware-tools.ps1"
+        "scripts/install-vmware-tools-from-iso.ps1"
       ]
     },
     {      
