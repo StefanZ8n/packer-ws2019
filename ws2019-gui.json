@@ -80,6 +80,22 @@
     {
       "type": "windows-restart",
       "restart_timeout": "30m"
-    }   
+    },
+    {
+      "type": "powershell",
+      "scripts": [
+        "scripts/adjustments.ps1"
+      ]
+    },
+    {
+      "type": "powershell",
+      "scripts": [
+        "scripts/cleanup.ps1"
+      ]
+    },
+    {
+      "type": "windows-restart",
+      "restart_timeout": "30m"
+    }
   ]
 }
