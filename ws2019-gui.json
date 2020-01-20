@@ -84,6 +84,16 @@
     {
       "type": "powershell",
       "scripts": [
+        "scripts/win-update.ps1"
+      ]
+    },
+    {
+      "type": "windows-restart",
+      "restart_timeout": "30m"
+    },
+    {
+      "type": "powershell",
+      "scripts": [
         "scripts/adjustments.ps1"
       ]
     },
