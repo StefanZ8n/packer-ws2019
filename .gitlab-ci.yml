@@ -1,0 +1,37 @@
+stages:
+  - build
+  - deploy
+
+before_script:
+  - "$LATEST_TAG=$(git describe --abbrev=0)"
+
+packer:
+  stage: build
+  before_script:
+    - 'Remove-Item -Path .\output-vmware-iso\ -Recurse -Force; $exit_code = $?'
+  script:
+    - "packer build ws2019-gui.json"
+  tags:
+    - packer
+    - windows
+    - ovftool
+  cache:
+    paths:
+      - packer_cache/
+  artifacts:
+    paths:
+      - "output-vmware-iso/"
+    expire_in: 1 day
+
+copytosmb:
+  stage: deploy
+  script:    
+    - 'Move-Item -Path .\output-vmware-iso\*.ova -Destination $SMB_PATH\WS2019-$LATEST_TAG-$(Get-Date -Format "yyMMdd")-$CI_PIPELINE_IID.ova'
+  tags:
+    - packer
+    - windows
+    - ovftool
+  when: on_success
+  only:
+    variables:
+      - $SMB_PATH

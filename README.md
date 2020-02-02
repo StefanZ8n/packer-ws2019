@@ -32,7 +32,7 @@ This Packer configuration file allows you to build images for VMware Workstation
 ### Prepare Build Host
 
 * Install Packer
-* Install VMware OVA Tool
+* Install VMware OVA Tool and add the installation path to `%PATH%` to find `ovftool`
 
 ### Configure Build Variables
 
@@ -72,3 +72,8 @@ The default credentials for this VM image are:
 
 - [packer-Win2019](https://github.com/eaksel/packer-Win2019) (used as a base for this work - big kudos!)
 - Repo contains VMware's drivers for paravirtual devices (`pvscsi` and `vmxnet3`)
+
+## Gitlab-CI Build
+The following variables have to be set in the Gitlab UI
+
+| `SMB_PATH` | The UNC path to the SMB share where to put the resulting OVA file - the user running Gitlab-Runner must have write access |
