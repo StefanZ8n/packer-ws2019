@@ -22,6 +22,10 @@ packer:
     paths:
       - "output-vmware-iso/"
     expire_in: 1 day
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: always
+    - when: manual
 
 copytosmb:
   stage: deploy
@@ -30,8 +34,7 @@ copytosmb:
   tags:
     - packer
     - windows
-    - ovftool
-  when: on_success
-  only:
-    variables:
-      - $SMB_PATH
+    - ovftool  
+  rules:
+    - if: $SMB_PATH
+      when: on_success
