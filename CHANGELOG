@@ -1,3 +1,7 @@
+v2.1.0 - 13.02.2020
++ Added GitLab CI to automatically build and deploy image
+* Changed Windows Update to run twice to get the latest cumulative update
+
 v2.0.0 - 15.10.2019
 + Set telemetry settings to lowest level
 + Show file extensions in Explorer by default
