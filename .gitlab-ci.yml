@@ -7,7 +7,7 @@ before_script:
 
 workflow:
   rules:
-    - when: manual
+    - when: never
 
 packer:
   stage: build
