@@ -7,7 +7,7 @@ before_script:
 
 workflow:
   rules:
-    - if: $CI_JOB_MANUAL
+    - if: $CI_JOB_MANUAL == "true"
       when: always
     - when: never
 
