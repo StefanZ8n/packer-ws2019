@@ -1,9 +1,8 @@
 {
   "variables": {
     "boot_wait": "5s",
-    "disk_size": "40960",
-    "iso_checksum_type": "sha256",
-    "iso_checksum": "DBB0FFBAB5D114CE7370784C4E24740191FEFDB3349917C77A53FF953DD10F72",
+    "disk_size": "40960",    
+    "iso_checksum": "sha256:DBB0FFBAB5D114CE7370784C4E24740191FEFDB3349917C77A53FF953DD10F72",
     "iso_url": "https://software-download.microsoft.com/download/pr/17763.1.180914-1434.rs5_release_SERVER_EVAL_X64FRE_EN-US.ISO",
     "memsize": "2048",
     "numvcpus": "2",
@@ -24,8 +23,7 @@
       "format": "ova",
       "disable_vnc": true,
       "vnc_disable_password": true,
-      "http_directory": "http",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "http_directory": "http",      
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "vm_name": "{{user `vm_name`}}",

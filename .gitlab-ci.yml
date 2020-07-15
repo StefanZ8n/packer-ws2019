@@ -5,6 +5,12 @@ stages:
 before_script:
   - "$LATEST_TAG=$(git describe --abbrev=0)"
 
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - when: never
+
 packer:
   stage: build
   before_script:
@@ -23,9 +29,7 @@ packer:
       - "output-vmware-iso/"
     expire_in: 1 day
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: always
-    - when: manual
+    - when: always
 
 copytosmb:
   stage: deploy
@@ -38,3 +42,4 @@ copytosmb:
   rules:
     - if: $SMB_PATH
       when: on_success
+    - when: never
