@@ -1,3 +1,7 @@
+v2.1.1 - 15.07.2020
+* Improved gitlab-ci handling
+- Fixed packer errors due to deprecated iso_checksum_type
+
 v2.1.0 - 13.02.2020
 + Added GitLab CI to automatically build and deploy image
 * Changed Windows Update to run twice to get the latest cumulative update
