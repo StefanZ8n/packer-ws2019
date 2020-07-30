@@ -1,5 +1,6 @@
-v3.0.0 - 15.07.2020
+v3.0.0 - 30.07.2020
 + Updated to new Microsoft eval ISO file (WS2019 build 1909) - old file is not reachable anymore
++ Add installation of new Microsoft Edge as default browser
 
 v2.1.1 - 15.07.2020
 * Improved gitlab-ci handling
