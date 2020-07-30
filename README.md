@@ -16,6 +16,11 @@ This Packer configuration file allows you to build images for VMware Workstation
 * Unattended installation of WS2019 Datacenter Eval version (Desktop experience) from downloaded ISO file
 * Installation of VMware tools from ISO provided from the build ESX server
 * Updating OS via Windows Update
+* Doing some OS adjustments
+  * Set Windows telemetry settings to minimum
+  * Show file extentions by default
+  * Install latest stable Microsoft Edge Chromium as default browser
+* Cleanup tasks
 * Export VM and package as OVA file
 
 ## HowTo

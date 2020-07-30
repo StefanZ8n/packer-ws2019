@@ -27,7 +27,7 @@ packer:
   artifacts:
     paths:
       - "output-vmware-iso/"
-    expire_in: 1 day
+    expire_in: 1 hours
   rules:
     - when: always
 
