@@ -45,7 +45,8 @@
         "scripts/gui/autounattend.xml",
         "resources/drivers/pvscsi",
         "resources/drivers/vmxnet3",
-        "scripts/gui/sysprep-autounattend.xml"    
+        "scripts/gui/sysprep-autounattend.xml",
+        "resources/configs/edge_chromium_preferences.json"
       ],
       "communicator": "winrm",
       "winrm_username": "{{user `winrm_username`}}",
