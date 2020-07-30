@@ -1,0 +1,17 @@
+{
+    "bookmark_bar": {
+        "show_on_all_tabs": true
+    },
+    "distribution": {
+        "import_bookmarks": false,
+        "import_history": false,
+        "import_home_page": false,
+        "import_search_engine": false,
+        "skip_first_run_ui": true,
+        "show_welcome_page": false,
+        "create_all_shortcuts": true,
+        "do_not_launch_chrome": true,
+        "make_chrome_default": true,
+        "system_level": true
+    }
+}
