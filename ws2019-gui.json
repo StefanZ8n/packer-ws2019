@@ -24,7 +24,6 @@
       "format": "ova",
       "disable_vnc": true,
       "vnc_disable_password": true,
-      "http_directory": "http",      
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "vm_name": "{{user `vm_name`}}",
