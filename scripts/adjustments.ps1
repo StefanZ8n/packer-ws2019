@@ -20,17 +20,19 @@ New-ItemProperty -Path $registryPath -Name $settingName -Value $settingValue -Pr
 $null = reg unload HKU\UserHive
 $null = Remove-PSDrive -Name HKU
 
-# Install Microsoft Edge Chromium 
-# Inspriation from https://github.com/haavarstein/Applications/blob/master/Microsoft/Edge%20Enterprise
-# Great Evergreen module: https://github.com/aaronparker/Evergreen
-Install-Module Evergreen -Force | Import-Module Evergreen
+# Install Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-$EvergreenEdge = Get-MicrosoftEdge | Where-Object { $_.Architecture -eq "x64" -and $_.Channel -eq "Stable" -and $_.Platform -eq "Windows" }
-$EvergreenEdge = $EvergreenEdge | Sort-Object -Property Version -Descending | Select-Object -First 1
-$msiPath = "${env:SystemRoot}\Temp\edgechromium.msi"
-if (!(Test-Path -Path $msiPath)) {
-    Invoke-WebRequest -UseBasicParsing -Uri $EvergreenEdge.uri -OutFile $msiPath
-}
-$UnattendedArgs = "/i ${msiPath} ALLUSERS=1 /qn /liewa ${env:SystemRoot}\Temp\edgeinstall.log"
-Start-Process msiexec.exe -ArgumentList $UnattendedArgs -Wait -PassThru
-Copy-Item -Path "A:\edge_chromium_preferences.json" "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\master_preferences" -Recurse -Force
+choco install -y microsoft-edge
+
+choco install -y --package-parameters=/SSHServerFeature openssh
+
+choco install -y powershell-core
+
+choco install -y 7zip
+
+choco install -y notepadplusplus.install
+
+# Enable PowerShell core as the default SSH Shell
+# See https://gitlab.com/DarwinJS/ChocoPackages/-/blob/master/openssh/tools/Set-SSHDefaultShell.ps1
+. $env:programfiles\OpenSSH-Win64\Set-SSHDefaultShell.ps1 -PathSpecsToProbeForShellEXEString "$env:programfiles\PowerShell\*\pwsh.exe;$env:programfiles\PowerShell\*\Powershell.exe;c:\windows\system32\windowspowershell\v1.0\powershell.exe"
