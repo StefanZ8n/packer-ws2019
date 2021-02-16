@@ -87,4 +87,6 @@ The default credentials for this VM image are:
 ## Gitlab-CI Build
 The following variables have to be set in the Gitlab UI
 
+| Variable   | Description                                                                                                               |
+|------------|---------------------------------------------------------------------------------------------------------------------------|
 | `SMB_PATH` | The UNC path to the SMB share where to put the resulting OVA file - the user running Gitlab-Runner must have write access |
