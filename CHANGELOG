@@ -1,3 +1,8 @@
+v3.1.0 - 16.02.2021
++ Pre-install Chocolatey
++ Use Chocolatey to pre-install OpenSSH-Server, Powershell Core, Notepad++, 7-Zip
+* Changed Microsoft Edge installation to be done via Chocolatey
+
 v3.0.0 - 30.07.2020
 + Updated to new Microsoft eval ISO file (WS2019 build 1909) - old file is not reachable anymore
 + Add installation of new Microsoft Edge as default browser
