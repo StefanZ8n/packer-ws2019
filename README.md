@@ -19,7 +19,13 @@ This Packer configuration file allows you to build images for VMware Workstation
 * Doing some OS adjustments
   * Set Windows telemetry settings to minimum
   * Show file extentions by default
-  * Install latest stable Microsoft Edge Chromium as default browser
+  * Install [Chocolatey](https://chocolatey.org/) - a Windows package manager
+    * Install Microsoft Edge (Chromium)
+    * Install Win32-OpenSSH-Server
+    * Install PowerShell Core
+    * Install 7-Zip
+    * Install Notepad++
+  * Enable Powershell-Core (`pwsh`) to be the default SSHD shell
 * Cleanup tasks
 * Export VM and package as OVA file
 
