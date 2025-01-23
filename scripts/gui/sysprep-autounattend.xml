@@ -38,8 +38,8 @@
                 </AdministratorPassword>
             </UserAccounts>
             <TimeZone>Central Europe Standard Time</TimeZone>
-            <RegisteredOrganization>Veeam</RegisteredOrganization>
-            <RegisteredOwner>Veeam</RegisteredOwner>
+            <RegisteredOrganization>My Organization</RegisteredOrganization>
+            <RegisteredOwner>My Name</RegisteredOwner>
         </component>
     </settings>
 
